@@ -9,7 +9,7 @@
   <ItemGroup>
     <PackageReference Include="AspNetCore.Identity.Mongo" Version="8.3.3" />
     <PackageReference Include="Cadmus.Api.Controllers" Version="5.0.0" />
-    <PackageReference Include="Cadmus.Api.Models" Version="5.0.0" />
+    <PackageReference Include="Cadmus.Api.Models" Version="5.0.1" />
     <PackageReference Include="Cadmus.Api.Services" Version="5.0.0" />
     <PackageReference Include="Cadmus.Seed.General.Parts" Version="3.0.2" />
     <PackageReference Include="Cadmus.Seed.Geo.Parts" Version="0.0.2" />
