@@ -3,7 +3,6 @@ using Cadmus.Seed;
 using Cadmus.Seed.General.Parts;
 using Cadmus.Seed.Geo.Parts;
 using Fusi.Microsoft.Extensions.Configuration.InMemoryJson;
-using SimpleInjector;
 using System.Reflection;
 
 namespace CadmusGeoApi.Services;
@@ -15,6 +14,31 @@ namespace CadmusGeoApi.Services;
 public sealed class GeoPartSeederFactoryProvider :
     IPartSeederFactoryProvider
 {
+    private static IHost GetHost(string config)
+    {
+        // build the tags to types map for parts/fragments
+        Assembly[] seedAssemblies = new[]
+        {
+            // Cadmus.Seed.General.Parts
+            typeof(NotePartSeeder).Assembly,
+            // Cadmus.Seed.Geo.Parts
+            typeof(AssertedLocationsPartSeeder).GetTypeInfo().Assembly,
+        };
+        TagAttributeToTypeMap map = new();
+        map.Add(seedAssemblies);
+
+        return new HostBuilder()
+            .ConfigureServices((hostContext, services) =>
+            {
+                PartSeederFactory.ConfigureServices(services,
+                    new StandardPartTypeProvider(map),
+                    seedAssemblies);
+            })
+            // extension method from Fusi library
+            .AddInMemoryJson(config)
+            .Build();
+    }
+
     /// <summary>
     /// Gets the part/fragment seeders factory.
     /// </summary>
@@ -25,31 +49,6 @@ public sealed class GeoPartSeederFactoryProvider :
     {
         if (profile == null) throw new ArgumentNullException(nameof(profile));
 
-        // build the tags to types map for parts/fragments
-        Assembly[] seedAssemblies = new[]
-        {
-                // Cadmus.Seed.General.Parts
-                typeof(NotePartSeeder).Assembly,
-                // Cadmus.Seed.Geo.Parts
-                typeof(AssertedLocationsPartSeeder).GetTypeInfo().Assembly,
-            };
-        TagAttributeToTypeMap map = new();
-        map.Add(seedAssemblies);
-
-        // build the container for seeders
-        Container container = new();
-        PartSeederFactory.ConfigureServices(
-            container,
-            new StandardPartTypeProvider(map),
-            seedAssemblies);
-
-        container.Verify();
-
-        // load seed configuration
-        IConfigurationBuilder builder = new ConfigurationBuilder()
-            .AddInMemoryJson(profile);
-        var configuration = builder.Build();
-
-        return new PartSeederFactory(container, configuration);
+        return new PartSeederFactory(GetHost(profile));
     }
 }
