@@ -10,6 +10,8 @@ Quick Docker image build:
 
 ## History
 
+- 2023-02-11: updated packages (minor change in toponym model).
+
 # 1.0.0
 
 - 2023-02-02: migrated to new components factory. This is a breaking change for backend components, please see [this page](https://myrmex.github.io/overview/cadmus/dev/history/#2023-02-01---backend-infrastructure-upgrade). Anyway, in the end you just have to update your libraries and a single namespace reference. Benefits include:
