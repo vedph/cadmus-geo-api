@@ -10,6 +10,7 @@ Quick Docker image build:
 
 ## History
 
+- 2023-05-16: updated packages.
 - 2023-02-11: updated packages (minor change in toponym model).
 
 # 1.0.0
