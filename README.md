@@ -10,6 +10,9 @@ Quick Docker image build:
 
 ## History
 
+### 2.0.0
+
+- 2023-05-24: updated packages (breaking change in general parts introducing [AssertedCompositeId](https://github.com/vedph/cadmus-bricks-shell/blob/master/projects/myrmidon/cadmus-refs-asserted-ids/README.md#asserted-composite-id)).
 - 2023-05-16: updated packages.
 - 2023-02-11: updated packages (minor change in toponym model).
 
