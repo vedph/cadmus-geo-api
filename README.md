@@ -10,13 +10,15 @@ Quick Docker image build:
 
 ## History
 
+- 2023-06-02: updated packages.
+
 ### 2.0.0
 
 - 2023-05-24: updated packages (breaking change in general parts introducing [AssertedCompositeId](https://github.com/vedph/cadmus-bricks-shell/blob/master/projects/myrmidon/cadmus-refs-asserted-ids/README.md#asserted-composite-id)).
 - 2023-05-16: updated packages.
 - 2023-02-11: updated packages (minor change in toponym model).
 
-# 1.0.0
+### 1.0.0
 
 - 2023-02-02: migrated to new components factory. This is a breaking change for backend components, please see [this page](https://myrmex.github.io/overview/cadmus/dev/history/#2023-02-01---backend-infrastructure-upgrade). Anyway, in the end you just have to update your libraries and a single namespace reference. Benefits include:
   - more streamlined component instantiation.
