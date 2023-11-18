@@ -1,4 +1,4 @@
-# Cadmus Geography API
+﻿# Cadmus Geography API
 
 This API is used to develop Cadmus geography components.
 
@@ -10,6 +10,9 @@ Quick Docker image build:
 
 ## History
 
+### 4.0.0
+
+- 2023-11-18: ⚠️ Upgraded to .NET 8.
 - 2023-11-09: updated packages.
 - 2023-11-07: updated packages.
 
