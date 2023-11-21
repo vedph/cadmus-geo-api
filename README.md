@@ -10,6 +10,8 @@ Quick Docker image build:
 
 ## History
 
+- 2023-11-21: ipdated packages.
+
 ### 4.0.0
 
 - 2023-11-18: ⚠️ Upgraded to .NET 8.
