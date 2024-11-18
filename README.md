@@ -10,6 +10,9 @@ Quick Docker image build:
 
 ## History
 
+### 5.0.0
+
+- 2024-11-18: ⚠️ upgraded to .NET 9.
 - 2024-06-09: updated packages.
 - 2024-05-24: updated packages.
 - 2024-03-22: updated packages.
