@@ -10,6 +10,7 @@ Quick Docker image build:
 
 ## History
 
+- 2025-01-24: updated packages.
 - 2024-12-23: updated packages.
 - 2024-12-03: updated packages.
 - 2024-11-30: updated packages.
