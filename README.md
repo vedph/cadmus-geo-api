@@ -2,14 +2,19 @@
 
 This API is used to develop Cadmus geography components.
 
-Quick Docker image build:
+🐋 Quick Docker image build (you need to have a `buildx` container):
 
-    docker build . -t vedph2020/cadmus-geo-api:3.0.0 -t vedph2020/cadmus-geo-api:latest
+```bash
+docker buildx create --use
+
+docker buildx build . --platform linux/amd64,linux/arm64 -t vedph2020/cadmus-geo-api:1.0.3 -t vedph2020/cadmus-geo-api:latest --push
+```
 
 (replace with the current version).
 
 ## History
 
+- 2025-01-28: updated packages.
 - 2025-01-24: updated packages.
 - 2024-12-23: updated packages.
 - 2024-12-03: updated packages.
