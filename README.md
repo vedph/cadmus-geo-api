@@ -14,6 +14,7 @@ docker buildx build . --platform linux/amd64,linux/arm64,windows/amd64,windows/a
 
 ## History
 
+- 2025-09-15: updated packages.
 - 2025-06-03: updated packages.
 - 2025-01-28: updated packages.
 - 2025-01-24: updated packages.
