@@ -3,6 +3,8 @@ using Cadmus.Seed;
 using Cadmus.Seed.General.Parts;
 using Cadmus.Seed.Geo.Parts;
 using Fusi.Microsoft.Extensions.Configuration.InMemoryJson;
+using Microsoft.Extensions.Hosting;
+using System;
 using System.Reflection;
 
 namespace CadmusGeoApi.Services;
@@ -17,13 +19,13 @@ public sealed class GeoPartSeederFactoryProvider :
     private static IHost GetHost(string config)
     {
         // build the tags to types map for parts/fragments
-        Assembly[] seedAssemblies = new[]
-        {
+        Assembly[] seedAssemblies =
+        [
             // Cadmus.Seed.General.Parts
             typeof(NotePartSeeder).Assembly,
             // Cadmus.Seed.Geo.Parts
             typeof(AssertedLocationsPartSeeder).GetTypeInfo().Assembly,
-        };
+        ];
         TagAttributeToTypeMap map = new();
         map.Add(seedAssemblies);
 

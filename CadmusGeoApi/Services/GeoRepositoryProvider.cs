@@ -5,6 +5,7 @@ using Cadmus.Core.Storage;
 using Cadmus.Mongo;
 using Cadmus.General.Parts;
 using Cadmus.Geo.Parts;
+using System;
 
 namespace CadmusGeoApi.Services;
 
@@ -29,13 +30,13 @@ public sealed class GeoRepositoryProvider : IRepositoryProvider
     {
         ConnectionString = "";
         TagAttributeToTypeMap map = new();
-        map.Add(new[]
-        {
+        map.Add(
+        [
             // Cadmus.General.Parts
             typeof(NotePart).GetTypeInfo().Assembly,
             // Cadmus.Geo.Parts
             typeof(AssertedLocationsPart).GetTypeInfo().Assembly,
-        });
+        ]);
 
         _partTypeProvider = new StandardPartTypeProvider(map);
     }
